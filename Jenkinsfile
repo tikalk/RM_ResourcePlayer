@@ -21,6 +21,10 @@ pipeline
         {
             steps
             {
+                script
+                {
+                     currentBuild.displayName = "#${BUILD_ID}-${BRANCH}"
+                }
                 checkout([
                     $class: 'GitSCM', branches: [[name: '${BRANCH}']],
                     userRemoteConfigs: [[url: 'git@github.com:tikalk/RM_ResourcePlayer.git',credentialsId:'ubuntu']]
