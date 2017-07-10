@@ -14,10 +14,7 @@ pipeline
         {
             steps
             {
-                wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm'])
-                {
-                    echo("test")
-                }
+                echo("test")
             }
         }
     }
