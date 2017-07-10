@@ -17,6 +17,13 @@ pipeline
                 sh("npm install")
             }
         }
+        stage('NPM build')
+        {
+            steps
+            {
+                sh("npm build")
+            }
+        }
     }
     post
     {
@@ -71,6 +78,6 @@ def notifyBuild(String buildStatus = 'STARTED')
   // Send notifications
   if (notify == true)
   {
-    slackSend (color: colorCode, message: summary, channel: "#fuze2017" )
+    slackSend (color: colorCode, message: summary, channel: "#fuse2017-player" )
   }
 }
