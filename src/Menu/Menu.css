@@ -1,0 +1,36 @@
+.Menu{
+    text-align: left;
+}
+ul,li{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.react-sanfona{
+    max-width:250px;
+    background-color:	#64b5ff;
+}
+
+.react-sanfona-item h3{
+    background-color:#7366ff;
+    color:white;
+    padding:10px;
+}
+
+.react-sanfona-item h3:hover{
+    background-color:#68a0ff;
+}
+
+.react-sanfona-item li{
+    list-style: none;
+    margin:0;
+    padding:10px;
+    cursor: pointer;
+}
+.react-sanfona-item li:hover{
+    background-color:#00d9df;
+}
+.react-sanfona-item .selected{
+    font-weight: bold;
+}

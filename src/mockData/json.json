@@ -1,0 +1,39 @@
+{                   
+  "stages": [
+    {
+      "name": "stage1 - React for beginners",
+      "resources": [
+         {
+          "name": "ReactJS crash course",
+          "url": "https://www.youtube.com/watch?v=A71aqufiNtQ"
+         },
+         {
+          "name": "Moobx introduction blog",
+          "url": "https://blog.wearewizards.io/a-mobx-introduction-and-case-study"
+         }
+      ]
+    },
+    {
+      "name": "stage2 - advanced",
+      "resources": [
+         {
+          "name": "React Advanced",
+          "url": "https://www.youtube.com/watch?v=05bEKoPkXMM"
+         },
+          { 
+          "name": "Redux beyond react",
+          "url": "https://vimeo.com/211558474"
+         }
+      ]
+    },
+    {
+      "name": "stage3-check your knowledge",
+        "resources":[
+          {
+            "name": "check your knowledge",
+            "url":"https://docs.google.com/document/d/1_7u7P4n2vyn6TBx502pCQuwqyOc-XcGCscdyHr3MkNE/edit?usp=sharing"
+          }
+        ]
+    }
+  ]
+}
