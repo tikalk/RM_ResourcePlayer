@@ -1,5 +1,9 @@
 pipeline
 {
+    parameters
+    {
+        string(name: 'BRANCH', defaultValue: 'master', description: 'Choose git branch to build from')
+    }
     options
     {
         buildDiscarder(logRotator(numToKeepStr: '30', daysToKeepStr: '60'))
@@ -18,7 +22,7 @@ pipeline
             steps
             {
                 checkout([
-                    $class: 'GitSCM', branches: [[name: '*/master']],
+                    $class: 'GitSCM', branches: [[name: '${BRANCH}']],
                     userRemoteConfigs: [[url: 'git@github.com:tikalk/RM_ResourcePlayer.git',credentialsId:'ubuntu']]
                 ])
             }
