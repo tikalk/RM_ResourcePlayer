@@ -14,7 +14,10 @@ node ('master') {
       stage('Build & Push Image') {
         node ('linux-host-slave') {
           sh "docker images"
-          sh "docker rmi -f 66f64fff7bf6"
+          sh "docker rmi -f e81599f61a6b"
+          sh "docker rmi -f 1c8064d6174b"
+          sh "docker rmi -f e2c8ca756ae1"
+          sh "docker rmi -f c5ee37494de0"
           sh "df -h"
           withEnv(['AWS_ECR_LOGIN=true', 'AWS_ECR_LOGIN_REGISTRY_IDS=329054710135', 'AWS_DEFAULT_REGION=eu-west-2', 'AWS_REGION=eu-west-2']) {
             sh(script: "\$(\${HOME}/.local/bin/aws ecr get-login --no-include-email &> /dev/null)", returnStdout:false)
