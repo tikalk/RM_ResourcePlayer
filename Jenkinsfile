@@ -46,23 +46,23 @@ pipeline
             }
         }
     }
-    post
-    {
-        success
-        {
-            notifyBuild('SUCCESS')
-        }
-
-        failure
-        {
-            notifyBuild('FAILURE')
-        }
-
-        unstable
-        {
-            notifyBuild('UNSTABLE')
-        }
-    }
+//    post
+//    {
+//        success
+//        {
+//            notifyBuild('SUCCESS')
+//        }
+//
+//        failure
+//        {
+//            notifyBuild('FAILURE')
+//        }
+//
+//        unstable
+//        {
+//            notifyBuild('UNSTABLE')
+//        }
+//    }
 }
 
 def notifyBuild(String buildStatus = 'STARTED')
