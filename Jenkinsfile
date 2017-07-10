@@ -42,7 +42,7 @@ node ('master') {
         curl -LO https://storage.googleapis.com/kubernetes-release/release/\$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
         chmod +x ./kubectl
         \${HOME}/.local/bin/aws s3 cp s3://k8s-hub-tikal-io/hub.tikal.io/kconfig .
-        ./kubectl apply -f svc.yaml --kubeconfig=\$(pwd)/kconfig --namespace fuze
+//        ./kubectl apply -f svc.yaml --kubeconfig=\$(pwd)/kconfig --namespace fuze
         """)
         waitForServices()
       }
@@ -58,13 +58,13 @@ node ('master') {
           }
         }
       }
-      stage ('Deploy to K8S') {
-        sh(script: """
-        sed -i 's/BUILDNUMBER/${BUILD_NUMBER}/g' deployment.yaml
-        ./kubectl apply -f deployment.yaml --kubeconfig=\$(pwd)/kconfig --namespace fuze
-        ./kubectl get pods --namespace fuze -l app=crochunter &> /dev/null
-        """, returnStatus: false, returnStdout: false)
-      }
+//      stage ('Deploy to K8S') {
+//        sh(script: """
+//        sed -i 's/BUILDNUMBER/${BUILD_NUMBER}/g' deployment.yaml
+//        ./kubectl apply -f deployment.yaml --kubeconfig=\$(pwd)/kconfig --namespace fuze
+//        ./kubectl get pods --namespace fuze -l app=crochunter &> /dev/null
+//        """, returnStatus: false, returnStdout: false)
+//      }
     }
   }
 }
