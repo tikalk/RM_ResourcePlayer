@@ -19,7 +19,7 @@ node ('master') {
             withDockerRegistry([credentialsId: 'ecr:eu-west-2:k8s-aws-ecr', url: "${registry}"]) {
               deleteDir()
               git 'https://github.com/tikalk/RM_ResourcePlayer.git'
-              def image = docker.build("329054710135.dkr.ecr.eu-west-2.amazonaws.com/k8s-fuze/rm_resource_player:${BUILD_NUMBER}")
+              def image = docker.build("329054710135.dkr.ecr.eu-west-2.amazonaws.com/k8s-fuze/rm_resource_player:latest")
               image.push()
             }
           }
