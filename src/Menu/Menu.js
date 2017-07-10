@@ -13,16 +13,15 @@ class Menu extends Component {
         }
     }
 
-    handleClick(itemIndex, resourceIndex) {
+    handleClick(itemIndex, resourceIndex, resource) {
         this.setState({
             itemIndex: itemIndex,
             resourceIndex: resourceIndex
         })
-
+        this.props.onSelect(itemIndex, resourceIndex, resource);
     }
 
-    render(props) {
-        console.log(this.state.itemIndex);
+    render() {
         return (
             <div className='Menu'>
                 <Accordion allowMultiple={true}
@@ -38,7 +37,7 @@ class Menu extends Component {
                                 <ul>
                                     {item.resources.map((resource, resourceIndex) => {
                                         return (
-                                            <li onClick={() => this.handleClick(itemIndex, resourceIndex)}
+                                            <li onClick={() => this.handleClick(itemIndex, resourceIndex, resource)}
                                                 key={itemIndex + '_' + resourceIndex}
                                                 className={(this.state.resourceIndex === resourceIndex && this.state.itemIndex === itemIndex) && 'selected'}>
                                                 {resource.name}

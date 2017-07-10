@@ -1,15 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 import qs from 'query-string';
+import  Consts from '../../consts';
 
 export default class VideoIframe extends Component {
 
   static propTypes = {
-    url: PropTypes.string.isRequired
+    src: PropTypes.string.isRequired
   };
 
   static urlMap = new Map([
-    ['youtube', 'http://www.youtube.com/embed/'],
-    ['vimeo', 'http://player.vimeo.com/video/']
+    ['youtube', Consts.YOUTUBE],
+    ['vimeo', Consts.VIMEO]
   ]);
 
   getServiceUrlFromVideoString (url) {
