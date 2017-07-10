@@ -31,12 +31,12 @@ export default class VideoIframe extends Component {
   }
 
   render() {
-    const {url, ...htmlTags} = this.props;
-    const src = `${this.getServiceUrlFromVideoString(url)}${this.getIdFromVideoString(url)}`;
+    const {src, ...htmlTags} = this.props;
+    const _src = `${this.getServiceUrlFromVideoString(src)}${this.getIdFromVideoString(src)}`;
 
     return (
       <iframe
-        src={src}
+        src={_src}
         frameBorder='0'
         allowFullScreen
         {...htmlTags}

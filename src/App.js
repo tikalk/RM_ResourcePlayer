@@ -10,7 +10,7 @@ import Player from './components/resourcesPlayer/playerComponent';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.menuItemSelected.bind(this);
+      this.menuItemSelected = this.menuItemSelected.bind(this);
 
     this.state = {
       resource: {}
@@ -26,8 +26,6 @@ class App extends Component {
   }
 
   render() {
-    const input = '# Liron! This is a header\n\nAnd this is a paragraph';
-
     return (
       <div className="App">
         <div className="col-xs-3">

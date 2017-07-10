@@ -13,20 +13,31 @@ class Player extends Component {
             Tag = GoogleDocsIframe;
         } else if (src.endsWith('.md')) {
             Tag = MdPlayer;
-        } else if (src.startsWith(Consts.YOUTUBE) || src.startsWith(Consts.VIMEO)){
+        } else if (Consts.YOUTUBE_URL.test(src) || src.startsWith(Consts.VIMEO)){
             Tag = VideoIframe;
         }
         return Tag;
     }
 
     render() {
-        const src = 'liron.md';
-        const Tag = this.parseUrl(src);
-        return (
-            <div className="player">
-                <Tag src={this.props.src}/>
-            </div>
-        );
+        if(this.props.src) {
+            const Tag = this.parseUrl(this.props.src);
+            if(!Tag){
+                return (
+                    <div className="invalid">
+                        Invalid Url
+                    </div>
+                );
+            }
+            return (
+                <div className="player">
+                    <Tag src={this.props.src}/>
+                </div>
+            );
+        }
+        else {
+            return (<div></div>);
+        }
     }
 }
 
