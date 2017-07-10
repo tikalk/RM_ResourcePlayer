@@ -9,7 +9,7 @@ class MdPlayer extends Component {
 
     render() {
         return (
-            <ReactMarkdown source={this.props.input} />
+            <ReactMarkdown source={this.props.src} />
         );
     }
 }
