@@ -8,10 +8,7 @@ pipeline
     {
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
-    agent
-    {
-        any
-    }
+    agent any
     stages
     {
         stage('SCM: code update')
