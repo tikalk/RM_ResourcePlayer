@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import VideoIframe from './components/VideoIframe';
 
 class App extends Component {
@@ -16,11 +15,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <div>
-          Video:
-          <VideoIframe url={"https://www.youtube.com/embed/k3fz6CC45ok"} width={"100%"} height={"100%"} />
-          <VideoIframe url={"https://player.vimeo.com/video/224808179"} width={"100%"} height={"100%"} />
-        </div>
+        <VideoIframe url={"https://www.youtube.com/embed/k3fz6CC45ok"} width={"100%"} height={"100%"} />
+        <VideoIframe url={"https://player.vimeo.com/video/224808179"} width={"100%"} height={"100%"} />
       </div>
     );
   }
