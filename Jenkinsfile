@@ -52,7 +52,7 @@ node ('master') {
             sh(script: "\$(\${HOME}/.local/bin/aws ecr get-login --no-include-email &> /dev/null)", returnStdout:false)
             sh "cp \${HOME}/.docker/config.json \${HOME}/.dockercfg"
             withDockerRegistry([credentialsId: 'ecr:eu-west-2:k8s-aws-ecr', url: "${registry}"]) {
-              def image = docker.build("329054710135.dkr.ecr.eu-west-2.amazonaws.com/k8s-fuze/RM_ResourcePlayer:${BUILD_NUMBER}")
+              def image = docker.build("329054710135.dkr.ecr.eu-west-2.amazonaws.com/k8s-fuze/rm_resource_player:${BUILD_NUMBER}")
               image.push()
             }
           }
