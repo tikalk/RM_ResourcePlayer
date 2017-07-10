@@ -28,11 +28,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="col-xs-3">
-          <Menu onSelect={this.menuItemSelected} items={json.stages} />
-        </div>
-        <div className="col-xs-9">
-          <Player src={this.state.resource.url} > </Player>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-3">
+              <Menu onSelect={this.menuItemSelected} items={json.stages} />
+            </div>
+            <div className="col-xs-9">
+              <Player src={this.state.resource.url} > </Player>
+            </div>
+          </div>
         </div>
 
       </div>

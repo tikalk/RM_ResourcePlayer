@@ -24,9 +24,9 @@ class Player extends Component {
             const Tag = this.parseUrl(this.props.src);
             if(!Tag){
                 return (
-                    <div className="invalid">
-                        Invalid Url
-                    </div>
+                    <h2 className="invalid">
+                        Invalid Url: { this.props.src }
+                    </h2>
                 );
             }
             return (
