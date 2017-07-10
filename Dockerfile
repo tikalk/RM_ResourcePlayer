@@ -1,6 +1,6 @@
 FROM node:4
 
-ADD * /
+ADD package.json /
 
 RUN npm install
 RUN npm start
