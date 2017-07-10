@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Menu from './Menu/Menu.js';
 import './App.css';
+import * as json from './mockData/json.json'
 
 class App extends Component {
   render() {
@@ -13,6 +15,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+
+        <Menu items={json.stages} />
       </div>
     );
   }
