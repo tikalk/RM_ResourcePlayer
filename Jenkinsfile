@@ -13,6 +13,16 @@ pipeline
     }
     stages
     {
+        stage('SCM: code update')
+        {
+            steps
+            {
+                checkout([
+                    $class: 'GitSCM', branches: [[name: '*/master']],
+                    userRemoteConfigs: [[url: 'git@github.com:tikalk/RM_ResourcePlayer.git',credentialsId:'ubuntu']]
+                ])
+            }
+        }
         stage('NPM install')
         {
             steps
