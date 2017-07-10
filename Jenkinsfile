@@ -6,7 +6,10 @@ pipeline
     }
     agent
     {
-        docker 'node'
+        docker
+        {
+            image 'node'
+        }
     }
     stages
     {
