@@ -1,6 +1,6 @@
 FROM node:boron
 
-COPY . /
+COPY package.json /
 
 RUN npm install
 
