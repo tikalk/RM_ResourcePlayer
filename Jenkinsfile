@@ -13,8 +13,7 @@ node ('master') {
       }
       stage('Build & Push Image') {
         node ('linux-host-slave') {
-          sh "du -sh /data/jenkins_home/*"
-          sh "df -h"
+          sh "rm -rf /tmp/*"
           withEnv(['AWS_ECR_LOGIN=true', 'AWS_ECR_LOGIN_REGISTRY_IDS=329054710135', 'AWS_DEFAULT_REGION=eu-west-2', 'AWS_REGION=eu-west-2']) {
             sh(script: "\$(\${HOME}/.local/bin/aws ecr get-login --no-include-email &> /dev/null)", returnStdout:false)
             sh "cp \${HOME}/.docker/config.json \${HOME}/.dockercfg"
