@@ -38,12 +38,12 @@ node ('master') {
         checkout scm
         gitcommit_email = sh_out('git --no-pager show -s --format=\'%ae\'')
         currentBuild.displayName = "#${BUILD_NUMBER} ${gitcommit_email}"
-        sh_out("""
-        curl -LO https://storage.googleapis.com/kubernetes-release/release/\$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-        chmod +x ./kubectl
-        \${HOME}/.local/bin/aws s3 cp s3://k8s-hub-tikal-io/hub.tikal.io/kconfig .
+//        sh_out("""
+//        curl -LO https://storage.googleapis.com/kubernetes-release/release/\$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+//        chmod +x ./kubectl
+//        \${HOME}/.local/bin/aws s3 cp s3://k8s-hub-tikal-io/hub.tikal.io/kconfig .
 //        ./kubectl apply -f svc.yaml --kubeconfig=\$(pwd)/kconfig --namespace fuze
-        """)
+//        """)
         waitForServices()
       }
       stage('Build & Push Image') {
