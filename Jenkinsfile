@@ -44,7 +44,7 @@ node ('master') {
 //        \${HOME}/.local/bin/aws s3 cp s3://k8s-hub-tikal-io/hub.tikal.io/kconfig .
 //        ./kubectl apply -f svc.yaml --kubeconfig=\$(pwd)/kconfig --namespace fuze
 //        """)
-        waitForServices()
+//        waitForServices()
       }
       stage('Build & Push Image') {
         node ('linux-host-slave') {
