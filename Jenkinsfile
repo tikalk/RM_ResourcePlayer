@@ -6,10 +6,7 @@ pipeline
     }
     agent
     {
-        agent
-        {
-            docker 'node'
-        }
+        docker 'node'
     }
     stages
     {
