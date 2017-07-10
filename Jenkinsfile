@@ -35,8 +35,8 @@ node ('master') {
     withEnv(['AWS_ECR_LOGIN=true', 'AWS_ECR_LOGIN_REGISTRY_IDS=329054710135', 'AWS_DEFAULT_REGION=eu-west-2', 'AWS_REGION=eu-west-2']) {
       stage ('Prepare') {
         deleteDir()
-        gitcommit_email = sh_out('git --no-pager show -s --format=\'%ae\'')
-        currentBuild.displayName = "#${BUILD_NUMBER} ${gitcommit_email}"
+//        gitcommit_email = sh_out('git --no-pager show -s --format=\'%ae\'')
+//        currentBuild.displayName = "#${BUILD_NUMBER} ${gitcommit_email}"
 //        sh_out("""
 //        curl -LO https://storage.googleapis.com/kubernetes-release/release/\$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 //        chmod +x ./kubectl
