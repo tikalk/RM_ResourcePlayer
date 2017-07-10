@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Menu from './Menu/Menu.js';
 import './App.css';
-
+import * as json from './mockData/json.json'
 import VideoIframe from './components/VideoIframe';
 import MdPlayer from './components/mdIframe/mdPlayerComponent';
 
@@ -9,9 +10,9 @@ import MdPlayer from './components/mdIframe/mdPlayerComponent';
 class App extends Component {
 
   render() {
-      const input = '# Liron! This is a header\n\nAnd this is a paragraph';
+    const input = '# Liron! This is a header\n\nAnd this is a paragraph';
 
-      return (
+    return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -20,11 +21,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-
+        <Menu items={json.stages} />
         <VideoIframe url={"https://www.youtube.com/embed/k3fz6CC45ok"} width={"100%"} height={"100%"} />
         <VideoIframe url={"https://player.vimeo.com/video/224808179"} width={"100%"} height={"100%"} />
-
         <MdPlayer input={input}></MdPlayer>
+
 
       </div>
     );
