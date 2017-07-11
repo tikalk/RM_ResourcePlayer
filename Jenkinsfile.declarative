@@ -1,17 +1,19 @@
 pipeline
 {
-    parameters
-    {
-        string(name: 'BRANCH', defaultValue: 'master', description: 'Choose git branch to build from')
-    }
     options
     {
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
-    agent any
+    agent
+    {
+        node
+        {
+            label 'linux-host-slave'
+        }
+    }
     environment
     {
-        registry="https://329054710135.dkr.ecr.eu-west-2.amazonaws.com"
+        registry="329054710135.dkr.ecr.eu-west-2.amazonaws.com/k8s-fuze"
     }
 
     stages
@@ -20,42 +22,31 @@ pipeline
         {
             steps
             {
-                script
-                {
-                     currentBuild.displayName = "#${BUILD_ID}-${BRANCH}"
-                }
                 checkout([
-                    $class: 'GitSCM', branches: [[name: '${BRANCH}']],
+                    $class: 'GitSCM', branches: [[name: 'master']],
                     userRemoteConfigs: [[url: 'git@github.com:tikalk/RM_ResourcePlayer.git',credentialsId:'ubuntu']]
                 ])
             }
         }
-        stage('NPM install')
-        {
-            steps
-            {
-                sh("npm install")
-            }
-        }
-        stage('NPM build')
-        {
-            steps
-            {
-                sh("npm build")
-            }
-        }
-        stage('Image prepare')
+        stage('Docker build')
         {
             steps
             {
                 script
                 {
-                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'k8s-aws-ecr', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+                    docker.build("rm_resource_player")
+                }
+            }
+        }
+        stage('Docker push')
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry(registry, 'ecr:eu-west-2:k8s-aws-ecr')
                     {
-                        withEnv(['AWS_ECR_LOGIN=true', 'AWS_ECR_LOGIN_REGISTRY_IDS=329054710135', 'AWS_DEFAULT_REGION=eu-west-2', 'AWS_REGION=eu-west-2'])
-                        {
-
-                        }
+                        docker.image("rm_resource_player").push()
                     }
                 }
             }
