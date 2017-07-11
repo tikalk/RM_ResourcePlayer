@@ -1,4 +1,4 @@
-FROM node:boron
+FROM ubuntu
 
 COPY . /
 
