@@ -29,7 +29,6 @@ pipeline
             {
                 script
                 {
-                    sh("docker rmi -f portainer/portainer")
                     docker.build("rm_resource_player")
                 }
             }
