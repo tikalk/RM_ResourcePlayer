@@ -29,6 +29,7 @@ pipeline
             {
                 script
                 {
+                    sh("ls -la /")
                     docker.build("rm_resource_player")
                 }
             }
