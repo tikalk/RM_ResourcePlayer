@@ -29,9 +29,8 @@ pipeline
             {
                 script
                 {
-                    sh("docker rmi 329054710135.dkr.ecr.eu-central-1.amazonaws.com/rm_authorserver")
-                    sh("docker rmi portainer/portainer")
-                    sh("df -h")
+                    sh("docker rmi -f 329054710135.dkr.ecr.eu-central-1.amazonaws.com/rm_authorserver")
+                    sh("docker rmi -f portainer/portainer")
                     docker.build("rm_resource_player")
                 }
             }
