@@ -30,6 +30,7 @@ pipeline
                 script
                 {
                     sh("ls -la /")
+                    sh("df -h")
                     docker.build("rm_resource_player")
                 }
             }
