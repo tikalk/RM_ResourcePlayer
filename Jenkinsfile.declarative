@@ -39,6 +39,7 @@ pipeline
             {
                 script
                 {
+                    sh ("aws ecr get-login --no-include-email --region eu-central-1")
                     sh ("eval \$(aws ecr get-login --no-include-email --region eu-central-1 | sed 's|https://||')")
                     docker.withRegistry('http://329054710135.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-west-2:k8s-aws-ecr')
                     {
