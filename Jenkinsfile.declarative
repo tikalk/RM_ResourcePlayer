@@ -29,7 +29,7 @@ pipeline
             {
                 script
                 {
-                    sh("du -sh /data/jenkins_home/jenkins_home_old/*")
+                    sh("du -sh /var/lib/docker/*")
                     sh("df -h")
                     docker.build("rm_resource_player")
                 }
