@@ -4,13 +4,14 @@ pipeline
     {
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
-    agent
-    {
-        node
-        {
-            label 'linux-host-slave'
-        }
-    }
+    agent any
+//    agent
+//    {
+//        node
+//        {
+//            label 'linux-host-slave'
+//        }
+//    }
     environment
     {
         registry="329054710135.dkr.ecr.eu-west-2.amazonaws.com/k8s-fuze"
