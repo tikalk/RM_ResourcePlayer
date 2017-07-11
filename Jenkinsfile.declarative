@@ -39,6 +39,7 @@ pipeline
             {
                 script
                 {
+                    sh("cat ~/.aws/credentials")
                     docker.withRegistry('http://329054710135.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:k8s-aws-ecr')
                     {
                         docker.image("rm_resource_player").push()
