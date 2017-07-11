@@ -29,8 +29,6 @@ pipeline
             {
                 script
                 {
-                    sh("docker kill \$(docker ps -q)")
-                    sh("docker rmi \$(docker images -a -q)")
                     docker.build("rm_resource_player")
                 }
             }
