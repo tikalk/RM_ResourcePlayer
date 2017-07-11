@@ -29,7 +29,7 @@ pipeline
             {
                 script
                 {
-                    sh("du -sh /var/lib/docker/*")
+                    sh("docker images")
                     sh("df -h")
                     docker.build("rm_resource_player")
                 }
