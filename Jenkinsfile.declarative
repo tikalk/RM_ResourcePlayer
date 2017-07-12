@@ -39,6 +39,7 @@ pipeline
             {
                 script
                 {
+                    sh("eval \$(\${HOME}/.local/bin/aws ecr get-login | sed 's|https://||')")
                     docker.withRegistry('http://329054710135.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:fuse_ecr2')
                     {
                         docker.image("rm_resource_player").push()
